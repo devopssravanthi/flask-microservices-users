@@ -37,22 +37,6 @@ def test():
 
 
 @manager.command
-def cov():
-    """Runs the unit tests with coverage."""
-    tests = unittest.TestLoader().discover('project/tests')
-    result = unittest.TextTestRunner(verbosity=2).run(tests)
-    if result.wasSuccessful():
-        COV.stop()
-        COV.save()
-        print('Coverage Summary:')
-        COV.report()
-        COV.html_report()
-        COV.erase()
-        return 0
-    return 1
-
-
-@manager.command
 def recreate_db():
     """Recreates a database."""
     db.drop_all()
